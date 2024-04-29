@@ -27,7 +27,7 @@ To use this application, you'll need Java installed on your system. You can down
 4. Analyze the implication table generated to understand the reduction process.
 
 ## Examples and Samples
-![Screenshot 1](/path/to/screenshot1.png)
+![Screenshot 1](/Samples/smaple_1.jpg)
 
 ## Contributing
 Contributions are welcome! If you find any bugs or have suggestions for improvements, please feel free to open an issue or submit a pull request.
