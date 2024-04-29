@@ -2,6 +2,9 @@ public class ImplicationTable {
     public static StateTable reduce(StateTable stateTable){
         int inputs = stateTable.getSize();
         int n = stateTable.getNumStates();
+
+        // implication table Creation
+        // --- filling using outputs
         Boolean[][] implicationTable = new Boolean[n][n];
         for(int i=0;i<n;i++){
             for(int j = i;j<n;j++){
@@ -10,6 +13,7 @@ public class ImplicationTable {
             }
         }
 
+        // --- filling using next states
         Boolean change = true;
         while (change) {
             change =false;
@@ -34,7 +38,7 @@ public class ImplicationTable {
         }
         
 
-
+        // print Impication table
         for(int i=0;i<n;i++){
             for(int j = 0;j<i;j++){
                 System.out.print(NumberSystemConverter.BooltoBit(implicationTable[i][j]));
@@ -43,11 +47,13 @@ public class ImplicationTable {
         }
         System.out.println();
 
+        // creating reduced state table
         String[] imptp = new String[n];
         for(int i=0;i<n;i++){
             imptp[i] = booleanArrayToBinaryString(implicationTable[i]);
         }
 
+        // replacing grouped states with new states
         int newNumStates = 0;
         int[] map = new int[n];
         for(int i=0;i<n;i++) map[i]=-1;
@@ -68,10 +74,8 @@ public class ImplicationTable {
             }
         }
         System.out.println();
-        // System.out.println("--------"+ newNumStates);
-        // for(int i=0;i<n;i++){
-        //     System.out.println(i + " : "+ map[i]);
-        // }
+
+        // remove redundant states
         StateTable reduced = new StateTable(newNumStates, stateTable.getNumInputs(), stateTable.getIsMealy());
         int cnt = 0; 
 
