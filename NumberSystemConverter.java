@@ -16,6 +16,7 @@ public class NumberSystemConverter {
     
     // Method to convert an Excel-style alphabetic column label to a decimal number
     public static int excelToDecimal(String columnLabel) {
+        if(columnLabel.equals("-")) return -1;
         int result = 0;
         for (int i = 0; i < columnLabel.length(); i++) {
             result = result * 26 + (columnLabel.charAt(i) - 'A' + 1);

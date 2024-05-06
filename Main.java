@@ -70,6 +70,8 @@ public class Main {
                 outputs[i]=true;
             } else if(outputs_str[i].equals("0")){
                 outputs[i]=false;
+            } else if(outputs_str[i].equals("-")){
+                outputs[i]=null;
             } else {
                 System.out.println("Invalid Input 4444444");
                 return;
