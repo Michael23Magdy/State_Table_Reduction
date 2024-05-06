@@ -85,7 +85,8 @@ public class ImplicationTable {
             if(!taken[map[i]]){
                 int[] newNextStates = new int[inputs];
                 for(int j=0;j<inputs;j++){
-                    newNextStates[j] = map[stateTable.getRow(i).getNextState(j)];
+                    int val = stateTable.getRow(i).getNextState(j);
+                    newNextStates[j] = (val==-1)?-1:map[val];
                 }
                 reduced.setRow(cnt, newNextStates, stateTable.getRow(i).getOutputs());
                 cnt++;
